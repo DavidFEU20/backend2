@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MVC.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Our Products</h1>
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    @foreach (var item in Model)
+    {
+
+
+        <div class="col">
+            <div class="card  h-100">
+                    <a href="@Url.Action("Details", new {  id=item.Id  })">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img src="@Html.DisplayFor(modelItem => item.ImageUrl)"
+                         class="img-fluid" />
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                    
+                    <p class="card-text">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </p>
+                    <p class="text-danger">@Html.DisplayFor(modelItem => item.Price):-</p>
+                    <a href="#!" class="btn btn-primary">Button</a>
+                </div>
+                    </a>
+            </div>
+        </div>
+       
+       
+
+    }
+</div>
+  
